@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InfoActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_marginRight="16dp"
+            android:text="@string/info_title"
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--스텐트 시술일-->
+        <TextView
+            android:text="@string/info_subtitle_1"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/colorGray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!--날자들어가는 곳-->
+        <androidx.cardview.widget.CardView
+            app:cardCornerRadius="6dp"
+            app:cardBackgroundColor="@color/colorLightGray"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:clickable="true"
+                android:onClick="pickDate"
+                android:orientation="horizontal"
+                android:paddingVertical="8dp"
+                android:paddingHorizontal="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_time"
+                    android:text="2019 Place Holder"
+                    android:textSize="14sp"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/colorBlack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <View
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"/>
+
+                <ImageView
+                    android:src="@drawable/ic_edit"
+                    android:padding="4dp"
+                    android:tint="@color/colorPrimary"
+                    android:background="@drawable/ic_circle_bg_primary"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!--자주 찾는 병원-->
+        <LinearLayout
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="@string/info_subtitle_2"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/colorGray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="1dp"/>
+
+            <ImageView
+                android:clickable="true"
+                android:onClick="searchHospital"
+                android:src="@drawable/ic_add"
+                android:padding="2dp"
+                android:layout_marginRight="16dp"
+                android:tint="@color/colorPrimary"
+                android:background="@drawable/ic_circle_bg_primary"
+                android:layout_width="28dp"
+                android:layout_height="28dp" />
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/list_view"
+            android:divider="@color/colorWhite"
+            android:dividerHeight="6dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+        </ListView>
+
+        <!--병력-->
+        <TextView
+            android:text="@string/info_subtitle_3"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="24dp"
+            android:textColor="@color/colorGray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <androidx.cardview.widget.CardView
+            app:cardCornerRadius="6dp"
+            app:cardBackgroundColor="@color/colorLightGray"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:padding="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/radios"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/rb_1"
+                            android:text="고혈압"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <RadioButton
+                            android:id="@+id/rb_2"
+                            android:text="당뇨"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <RadioButton
+                            android:id="@+id/rb_3"
+                            android:text="폐렴"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/rb_4"
+                            android:text="저혈압"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <RadioButton
+                            android:id="@+id/rb_5"
+                            android:text="암"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <RadioButton
+                            android:id="@+id/rb_6"
+                            android:text="알레르기"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_below="@id/radios"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/rb_7"
+                        android:text="기타"
+                        android:layout_marginRight="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <EditText
+                        android:id="@+id/et_etc"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:clickable="true"
+            android:layout_marginTop="24dp"
+            android:onClick="saveState"
+            app:cardCornerRadius="6dp"
+            app:contentPadding="8dp"
+            android:layout_gravity="center_horizontal"
+            app:cardBackgroundColor="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginHorizontal="26dp"
+                android:text="저장하기"
+                android:textStyle="bold"
+                android:textColor="@color/colorWhite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <View
+        android:layout_marginHorizontal="16dp"
+        android:background="@color/colorLightGray"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+</LinearLayout>

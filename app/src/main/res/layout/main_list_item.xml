@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:background="@color/colorLightGray"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View
+        android:layout_width="5dp"
+        android:background="@color/colorPrimaryDark"
+        android:layout_height="match_parent"/>
+
+    <ImageView
+        android:id="@+id/iv_alarm"
+        android:padding="8dp"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/ic_notifications_active"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tv_task"
+        android:padding="8dp"
+        android:text="플레이스 홀더"
+        android:textSize="15sp"
+        android:layout_gravity="center_vertical"
+        android:textColor="@color/colorBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="1dp"/>
+
+    <TextView
+        android:id="@+id/time"
+        android:padding="8dp"
+        android:text="13:00"
+        android:layout_gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_marginRight="8dp"
+        android:padding="4dp"
+        android:src="@drawable/ic_more_horiz_black"
+        android:layout_gravity="center_vertical"
+        app:civ_circle_background_color="@color/colorWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

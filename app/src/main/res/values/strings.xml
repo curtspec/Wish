@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">WeSH</string>
+    <string name="splash_sub_title">We Save Heart</string>
+    <string name="main_my_task">나의 일정</string>
+    <string name="main_menu_1">나의\n정보</string>
+    <string name="main_menu_2">주변\n병원</string>
+    <string name="main_menu_3">복용 약\n알람</string>
+
+    <string name="info_title">나의 정보</string>
+    <string name="info_subtitle_1">스텐트 시술일</string>
+    <string name="info_subtitle_2">자주 찾는 병원</string>
+    <string name="info_subtitle_3">병력</string>
+</resources>
