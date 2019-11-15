@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:theme="@style/StatusTheme"
+    android:background="@drawable/bg_calling"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CallingActivity">
+
+    <RelativeLayout
+        android:id="@+id/ic"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="130dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_circle_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_circle_line"
+            android:layout_width="230dp"
+            android:layout_height="230dp" />
+
+        <ImageView
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_circle_line"
+            android:layout_width="390dp"
+            android:layout_height="390dp" />
+
+        <ImageView
+            android:id="@+id/circle_radar"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_circle_fill"
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
+
+        <ImageView
+            android:paddingBottom="10dp"
+            android:src="@drawable/ic_siren_color"
+            android:layout_centerInParent="true"
+            android:layout_width="90dp"
+            android:layout_height="90dp" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:text="@string/calling_title_normal"
+        android:layout_above="@id/ic"
+        android:textColor="@color/colorWhite"
+        android:textSize="40sp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btn_close"
+        android:clickable="true"
+        android:onClick="closeActivity"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        app:cardElevation="0dp"
+        app:contentPadding="8dp"
+        app:cardCornerRadius="12dp"
+        app:cardBackgroundColor="#88ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="닫기"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btn_cancel"
+        android:clickable="true"
+        android:onClick="cancelCalling"
+        android:layout_marginHorizontal="16dp"
+        app:cardElevation="0dp"
+        android:layout_above="@id/btn_close"
+        app:contentPadding="8dp"
+        app:cardCornerRadius="12dp"
+        app:cardBackgroundColor="#88C62828"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="호출 취소"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/colorWhite"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

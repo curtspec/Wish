@@ -10,4 +10,15 @@
     <string name="info_subtitle_1">스텐트 시술일</string>
     <string name="info_subtitle_2">자주 찾는 병원</string>
     <string name="info_subtitle_3">병력</string>
+    <string name="info_subtitle_4">공유 연락처</string>
+
+    <string name="emer_title">긴급 메뉴</string>
+    <string name="emer_menu_1_normal">긴급 호출</string>
+    <string name="emer_menu_1_pressed">호출 취소</string>
+    <string name="emer_menu_2">자동심장충격기 위치</string>
+    <string name="emer_menu_3">심폐소생술</string>
+    <string name="emer_menu_4">자동심장충격기 사용법</string>
+
+    <string name="calling_title_emerency">응급출동\n호출중입니다.</string>
+    <string name="calling_title_normal">응급출동을 위해\n화면을 빠르게 두번\n터치해주세요.</string>
 </resources>

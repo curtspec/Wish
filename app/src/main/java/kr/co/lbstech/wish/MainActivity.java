@@ -1,13 +1,18 @@
 package kr.co.lbstech.wish;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
-import android.graphics.drawable.Drawable;
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -37,6 +42,9 @@ public class MainActivity extends AppCompatActivity
 
         listView = findViewById(R.id.list_view);
         calendarView = findViewById(R.id.calendar_view);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("");
 
         schedules.add(new Schedule(Calendar.getInstance(), "첫 할일", true));
         schedules.add(new Schedule(Calendar.getInstance(), "첫 할일", true));
@@ -48,6 +56,30 @@ public class MainActivity extends AppCompatActivity
         calendarView.setPreviousButtonImage(getDrawable(R.drawable.ic_chevron_left_black));
         calendarView.setForwardButtonImage(getDrawable(R.drawable.ic_chevron_right_black));
         calendarView.setOnDayClickListener(this);
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            int result = checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION);
+            if(result != PackageManager.PERMISSION_GRANTED){
+                requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 0);
+            }
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.emerency, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menu_emergency :
+                Intent intent = new Intent(this, EmergencyActivity.class);
+                startActivity(intent);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -57,11 +89,23 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        ImageView alarm = view.findViewById(R.id.iv_alarm);
         boolean alarmEnable = schedules.get(i).isAlarmEnable();
-        if(alarmEnable) alarm.setImageResource(R.drawable.ic_notifications_off);
-        else alarm.setImageResource(R.drawable.ic_notifications_active);
-
         schedules.get(i).setAlarmEnable(!alarmEnable);
+        adapter.notifyDataSetChanged();
+    }
+
+    public void goToInfo(View view) {
+        Intent intent = new Intent(this, InfoActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToAlarm(View view) {
+        Intent intent = new Intent(this, AlarmActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToMap(View view) {
+        Intent intent = new Intent(this, MapActivity.class);
+        startActivity(intent);
     }
 }

@@ -14,6 +14,7 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
+            android:theme="@style/ToolbarTheme"
             android:background="?attr/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -23,10 +24,10 @@
                 android:textColor="@color/colorWhite"
                 android:textStyle="bold"
                 android:textSize="18sp"
-                android:textAlignment="center"
-                android:layout_marginRight="16dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -74,6 +75,8 @@
             android:layout_height="wrap_content">
 
             <androidx.cardview.widget.CardView
+                android:clickable="true"
+                android:onClick="goToInfo"
                 app:cardCornerRadius="6dp"
                 app:contentPadding="8dp"
                 app:cardBackgroundColor="@color/colorPrimary"
@@ -107,6 +110,8 @@
             <androidx.cardview.widget.CardView
                 app:cardCornerRadius="6dp"
                 app:contentPadding="8dp"
+                android:clickable="true"
+                android:onClick="goToMap"
                 android:layout_marginHorizontal="16dp"
                 app:cardBackgroundColor="@color/colorPrimary"
                 android:layout_width="0dp"
@@ -140,6 +145,8 @@
                 app:cardCornerRadius="6dp"
                 app:contentPadding="8dp"
                 app:cardBackgroundColor="@color/colorPrimary"
+                android:clickable="true"
+                android:onClick="goToAlarm"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content">
@@ -171,6 +178,5 @@
         </LinearLayout>
 
     </LinearLayout>
-
 
 </RelativeLayout>
