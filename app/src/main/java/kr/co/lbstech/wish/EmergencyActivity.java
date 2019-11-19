@@ -29,8 +29,12 @@ public class EmergencyActivity extends AppCompatActivity {
     }
 
     public void howToCPR(View view) {
+        Intent intent = new Intent(this, CprActivity.class);
+        startActivity(intent);
     }
 
     public void getUsage(View view) {
+        Intent intent = new Intent(this, AEDActivity.class);
+        startActivity(intent);
     }
 }

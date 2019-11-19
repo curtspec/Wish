@@ -2,22 +2,39 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="kr.co.lbstech.wish">
 
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_custom_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_custom_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".AEDActivity"
+            android:parentActivityName=".EmergencyActivity"/>
+        <activity
+            android:name=".CprActivity"
+            android:parentActivityName=".EmergencyActivity" />
+
+        <receiver android:name=".WidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_provider_emergency" />
+        </receiver>
 
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="2jgocv4z36" />
 
-        <activity android:name=".MapActivity"
-            android:parentActivityName=".MainActivity"></activity>
+        <activity
+            android:name=".MapActivity"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".AlarmActivity" />
         <activity android:name=".CallingActivity" />
         <activity
@@ -26,7 +43,9 @@
         <activity
             android:name=".InfoActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".SplashActivity">
+        <activity
+            android:name=".SplashActivity"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

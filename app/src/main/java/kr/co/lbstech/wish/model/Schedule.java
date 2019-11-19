@@ -1,15 +1,19 @@
 package kr.co.lbstech.wish.model;
 
+import android.util.Log;
+
+import java.io.Serializable;
 import java.util.Calendar;
 
-public class Schedule {
+public class Schedule implements Serializable {
 
     private Calendar time;
     private String task;
     private boolean alarmEnable;
 
-    public Schedule(Calendar time, String task, boolean alarmEnable){
-        this.time = time;
+    public Schedule(long time, String task, boolean alarmEnable){
+        this.time = Calendar.getInstance();
+        this.time.setTimeInMillis(time);
         this.task = task;
         this.alarmEnable = alarmEnable;
     }

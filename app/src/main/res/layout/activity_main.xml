@@ -37,6 +37,7 @@
             app:todayLabelColor="@color/colorPrimary"
             app:type="one_day_picker"
             app:headerColor="@color/colorWhite"
+            app:eventsEnabled="true"
             app:selectionColor="@color/colorPrimary"
             app:abbreviationsBarColor="@color/colorLightGray"
             app:headerLabelColor="@color/colorBlack"
@@ -49,12 +50,44 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"/>
 
-        <TextView
-            android:padding="8dp"
-            android:text="@string/main_my_task"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="@string/main_my_task"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="1dp"/>
+
+            <androidx.cardview.widget.CardView
+                android:clickable="true"
+                android:onClick="clickAdd"
+                app:cardBackgroundColor="@color/colorPrimaryDark"
+                app:contentPadding="4dp"
+                app:cardCornerRadius="31dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:src="@drawable/ic_add"
+                    android:tint="@color/colorWhite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
 
         <ListView
             android:id="@+id/list_view"
