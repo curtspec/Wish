@@ -20,10 +20,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashSet;
+import java.util.Set;
 
 public class InfoActivity extends AppCompatActivity {
     private final String PREF_NAME = "information";
@@ -74,9 +76,17 @@ public class InfoActivity extends AppCompatActivity {
     // 상태 가져오기
     private void getState() {
         pref = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
+
+        SharedPreferences pref = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
         hospitals.addAll(pref.getStringSet("hospitals", new HashSet<>()));
         hospitalAdapter.notifyDataSetChanged();
         modifyListHeight();
+
+        numbers.clear();
+        numberAdapter.notifyDataSetChanged();
+        if(GV.numbers != null) numbers.addAll(GV.numbers);
+        else numbers.addAll(pref.getStringSet("number", new HashSet<>()));
+        numberAdapter.notifyDataSetChanged();
 
         calendar.setTimeInMillis(pref.getLong("time", calendar.getTimeInMillis()));
         setTimeText(calendar);
@@ -204,6 +214,9 @@ public class InfoActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
+        GV.numbers.clear();
+        GV.numbers.addAll(numbers);
+
         HashSet<String> tmp = new HashSet<>();
         tmp.addAll(numbers);
         pref.edit().putStringSet("number", tmp).apply();
