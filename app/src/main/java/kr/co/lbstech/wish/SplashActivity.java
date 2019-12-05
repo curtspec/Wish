@@ -9,7 +9,6 @@ import android.os.Handler;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -58,7 +57,6 @@ public class SplashActivity extends AppCompatActivity {
             GV.numbers = new ArrayList<>();
             SharedPreferences pref = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
             Set tmp = pref.getStringSet("number", new HashSet<>());
-            Toast.makeText(this, "tmp 개수" + tmp.size(), Toast.LENGTH_SHORT).show();
             GV.numbers.addAll(tmp);
         }
     }

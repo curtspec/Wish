@@ -10,18 +10,13 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -57,7 +52,6 @@ public class CallingActivity extends AppCompatActivity {
     private void getGlobalVariable() {
         SharedPreferences pref = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
         Set tmp = pref.getStringSet("number", new HashSet<>());
-        Toast.makeText(this, "tmp 개수" + tmp.size(), Toast.LENGTH_SHORT).show();
         numbers.addAll(tmp);
     }
 
